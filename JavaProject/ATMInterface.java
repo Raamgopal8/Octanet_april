@@ -8,12 +8,13 @@ class BankAccount{
 	String userName;
 	String password;
 	String accountNo;
-	float balance = 10000f;
+	float balance = 1000000f;
 	int transactions = 0;
 	String transactionHistory = "";
 	
 	public void register() {
 		Scanner sc = new Scanner(System.in);
+		
 		System.out.println("\nEnter your Name: ");
 		this.name = sc.nextLine();
 		System.out.println("\nEnter your Username: ");
@@ -26,13 +27,13 @@ class BankAccount{
 	}
 	public boolean login() {
 		boolean isLogin = false;
-		Scanner sc=new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		while( !isLogin) {
-			System.out.println("\nEnter your username: ");
+			System.out.println("\n Octanet ");
 			String Username = sc.nextLine();
 			if (Username.equals(userName)) {
 				while(!isLogin) {
-					System.out.println("\nEnter your password: ");
+					System.out.println("\n OctanetUser ");
 					String Password = sc.nextLine();
 					if(Password.equals(password)) {
 						System.out.println("\nLogin Successful");
@@ -74,7 +75,7 @@ class BankAccount{
 		Scanner sc=new Scanner(System.in); 
 		float amount = sc.nextFloat();
 		try {
-			if(amount <= 10000f) {
+			if(amount <= 1000000f) {
 				transactions++;
 				balance += amount;
 				System.out.println("\nDeposit Successful.");
@@ -83,10 +84,9 @@ class BankAccount{
 			}else {
 				System.out.println("\nSorry. The limit is 10000.");
 			}
-		}catch(Exception e) {
-			
 		}
-		
+		catch(Exception e) {
+		}
 	}
 	
 	public void transfer() {
@@ -97,32 +97,29 @@ class BankAccount{
 		float amount = sc.nextFloat();
 		try {
 			if(balance>= amount) {
-			if(amount <= 50000f) {
+			if(amount <= 5000000f) {
 				transactions++;
 				balance -= amount;
 				System.out.println("\nSuccesfully Transferred to "+ receipent);
 				String str = amount + "Rs transferred to " + receipent+"\n";
 				transactionHistory = transactionHistory.concat(str);
 			}else {
-				System.out.println("\nSorry. The limit is 50000.");
+				System.out.println("\nSorry. The limit is 5000000.");
 			}
 		}else{
 			System.out.println("\nInsufficient Balance.");
 		}}catch(Exception e) {
 		}
-			
-		}
+	}
 		
-	public void checkBalance() {
+	public void checkBalance() 
+	{
 		System.out.println("\n"+balance+"Rs");
 	}
 	
-	
-	
-	
 	public void transHistory() {
 		if(transactions ==0) {
-			System.out.println("No TRansactions happened");
+			System.out.println("No Transactions happened");
 		}else {
 			System.out.print("\n"+transactionHistory);
 		}
@@ -153,8 +150,11 @@ public class ATMInterface {
 		return input;
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		System.out.println("\n********************WELCOME TO ATM INTERFACE*******************");
+		System.out.println("Please Insert The Card");
+		System.out.println("Proceed....");
 		System.out.println("\n1.Register \n2.Exit");
 		System.out.println("Choose one option: ");
 		int choose = takenIntegerInput(2);
@@ -199,7 +199,6 @@ public class ATMInterface {
 				}else {
 					System.exit(0);
 				}
-				
 			}
 		}else {
 			System.exit(0);
@@ -207,5 +206,3 @@ public class ATMInterface {
 	}
 
 }
-
-
